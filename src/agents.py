@@ -11,7 +11,8 @@ from .tools import bing_search
 def create_research_agents(
     gpt_config: Dict[str, Any],
     grok_config: Dict[str, Any],
-    claude_config: Dict[str, Any]
+    claude_config: Dict[str, Any],
+    arbiter_model: str = "claude"
 ) -> Dict[str, ConversableAgent]:
     """
     Create all research agents for the multi-agent system.
@@ -20,6 +21,7 @@ def create_research_agents(
         gpt_config: Configuration for GPT-5.2 agent
         grok_config: Configuration for Grok 4 agent
         claude_config: Configuration for Claude mediator
+        arbiter_model: Model to use for arbiter/mediator ("claude", "gpt", or "grok")
     
     Returns:
         Dictionary of agent name to agent instance
@@ -57,9 +59,22 @@ def create_research_agents(
     )
 
     # Claude Mediator/Arbiter Agent
+    # Determine which config and model name to use based on arbiter_model parameter
+    arbiter_model_lower = arbiter_model.lower()
+    
+    if arbiter_model_lower == "gpt":
+        arbiter_config = gpt_config
+        model_name = "GPT"
+    elif arbiter_model_lower == "grok":
+        arbiter_config = grok_config
+        model_name = "Grok"
+    else:  # default to claude
+        arbiter_config = claude_config
+        model_name = "Claude"
+    
     claude_mediator = ConversableAgent(
         name="Claude_Mediator",
-        system_message="""You are a mediator and arbiter powered by Claude.
+        system_message=f"""You are a mediator and arbiter powered by {model_name}.
         Your role is to:
         1. Cross-question the search agents to probe their findings
         2. Identify inconsistencies or gaps in their research
@@ -70,7 +85,7 @@ def create_research_agents(
         
         You should be critical, thorough, and impartial in your mediation.
         """,
-        llm_config=claude_config,
+        llm_config=arbiter_config,
         human_input_mode="NEVER",
     )
 

@@ -8,13 +8,14 @@ This project demonstrates a sophisticated multi-agent system for conducting AI-p
 
 - **GPT-5.2 Search Agent**: Primary research agent powered by Azure OpenAI, grounded with Bing search
 - **Grok 4 Search Agent**: Secondary research agent powered by xAI, grounded with Bing search  
-- **Claude Mediator**: Arbiter and critique model that cross-questions search agents and validates results
+- **Flexible Arbiter/Mediator**: Configurable arbiter model (Claude, GPT, or Grok) that cross-questions search agents and validates results
 
 ## Features
 
 - 🔍 **Web-Grounded Research**: Agents use Bing Search API to access real-time information
 - 🤖 **Multi-Agent Collaboration**: Multiple AI models work together to provide comprehensive answers
-- ⚖️ **Validation & Mediation**: Claude acts as an arbiter to ensure quality and accuracy
+- ⚖️ **Validation & Mediation**: Configurable arbiter (Claude/GPT/Grok) ensures quality and accuracy
+- 🔧 **Flexible Configuration**: Switch arbiter model with a simple environment variable change
 - 📊 **Structured Workflow**: Organized conversation flow with clear roles and responsibilities
 - 💾 **Export Capabilities**: Save research results for later analysis
 
@@ -95,6 +96,9 @@ XAI_GROK_MODEL=grok-4
 ANTHROPIC_API_KEY=your_anthropic_api_key_here
 ANTHROPIC_CLAUDE_MODEL=claude-3-opus-20240229
 
+# Arbiter Model Selection (claude, gpt, or grok)
+ARBITER_MODEL=claude
+
 # Bing Search API
 BING_SEARCH_API_KEY=your_bing_search_api_key_here
 BING_SEARCH_ENDPOINT=https://api.bing.microsoft.com/v7.0/search
@@ -160,7 +164,7 @@ save_research_results(results, "my_research.json")
 - Validates or challenges other findings
 
 ### Claude Mediator
-- Acts as arbiter and critic
+- Acts as arbiter and critic (configurable to use Claude, GPT, or Grok)
 - Cross-questions research agents
 - Identifies inconsistencies
 - Synthesizes final answer
