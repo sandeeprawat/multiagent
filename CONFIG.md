@@ -79,7 +79,7 @@ The arbiter/mediator agent is responsible for cross-questioning search agents, v
 
 - `claude` (default) - Uses Claude for mediation, excellent at critical analysis and synthesis
 - `gpt` - Uses GPT-5.2 for mediation, good for balanced and comprehensive validation
-- `grok` - uses Grok 4 for mediation, provides alternative perspectives in validation
+- `grok` - Uses Grok 4 for mediation, provides alternative perspectives in validation
 
 Simply change the `ARBITER_MODEL` value to switch between models without any code changes.
 
