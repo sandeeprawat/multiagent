@@ -6,7 +6,7 @@ readme = "README.md"
 requires-python = ">=3.9"
 dependencies = [
     "jupyter>=1.0.0",
-    "notebook>=7.0.0",
+    "notebook>=7.2.2",
     "ipykernel>=6.29.0",
     "pyautogen>=0.2.0",
     "openai>=1.0.0",
