@@ -8,7 +8,7 @@ pyautogen>=0.2.0
 
 # AI/ML Libraries
 openai>=1.0.0
-azure-ai-inference>=1.0.0
+azure-ai-inference>=1.0.0b1
 anthropic>=0.25.0
 
 # Utilities
