@@ -1,0 +1,38 @@
+[project]
+name = "ai-research-multiagent"
+version = "0.1.0"
+description = "AI Research Jupyter Notebook with Microsoft Agent Framework and Multiagent Design"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "jupyter>=1.0.0",
+    "notebook>=7.0.0",
+    "ipykernel>=6.29.0",
+    "pyautogen>=0.2.0",
+    "openai>=1.0.0",
+    "azure-ai-inference>=1.0.0",
+    "anthropic>=0.25.0",
+    "python-dotenv>=1.0.0",
+    "requests>=2.31.0",
+    "pandas>=2.0.0",
+    "matplotlib>=3.7.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "black>=23.0.0",
+    "ruff>=0.1.0",
+]
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.black]
+line-length = 100
+target-version = ['py39']
+
+[tool.ruff]
+line-length = 100
+target-version = "py39"
