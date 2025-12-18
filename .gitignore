@@ -3,6 +3,9 @@ __pycache__/
 *.py[codz]
 *$py.class
 
+# Research results
+research_results_*.json
+
 # C extensions
 *.so
 
