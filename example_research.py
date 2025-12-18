@@ -63,7 +63,9 @@ def main():
 
     # Create agents
     print("Creating research agents...")
-    agents = create_research_agents(gpt52_config, grok4_config, claude_config)
+    arbiter_model = os.getenv("ARBITER_MODEL", "claude").lower()
+    print(f"Using {arbiter_model.upper()} as arbiter/mediator model")
+    agents = create_research_agents(gpt52_config, grok4_config, claude_config, arbiter_model)
     print("Agents created successfully!")
 
     # Define research topic

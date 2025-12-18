@@ -66,6 +66,23 @@ ANTHROPIC_CLAUDE_MODEL=claude-3-opus-20240229
 - `claude-3-sonnet-20240229` - Balanced performance and speed
 - `claude-3-haiku-20240229` - Fastest, good for simple tasks
 
+### Arbiter Model Selection
+
+```bash
+# Choose which model to use as the arbiter/mediator
+# Options: claude, gpt, or grok
+ARBITER_MODEL=claude
+```
+
+**How to choose:**
+The arbiter/mediator agent is responsible for cross-questioning search agents, validating results, and synthesizing final answers. You can choose any of the three available models:
+
+- `claude` (default) - Uses Claude for mediation, excellent at critical analysis and synthesis
+- `gpt` - Uses GPT-5.2 for mediation, good for balanced and comprehensive validation
+- `grok` - Uses Grok 4 for mediation, provides alternative perspectives in validation
+
+Simply change the `ARBITER_MODEL` value to switch between models without any code changes.
+
 ### Bing Search API
 
 ```bash
